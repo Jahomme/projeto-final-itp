@@ -18,6 +18,11 @@ int main(int argc, char *argv[]) {
     int height = (argc > 4) ? atoi(argv[4]) : 50;
     char *output_filename = (argc > 5) ? argv[5] : "ean8_output.pbm";
 
+     if (strlen(identifier) < 8) {
+        printf("Erro: O identificador possui menos que 8 dígitos. Por favor, insira um identificador válido.\n");
+        return 1;
+    }
+
     if (!is_valid_identifier(identifier)) {
         printf("Erro: Identificador invalido.\n");
         return 1;
